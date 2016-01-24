@@ -415,8 +415,10 @@ public class TEntityListener implements Listener {
 //						dB.spec(DebugLevel.S1_ADONDRIEL, "Has trader lore: ", Lore.hasTraderLore(item));
 //						dB.spec(DebugLevel.S1_ADONDRIEL, "Cleaned Item: ", ItemUtils.createStockItem(item).getItem(true));	
 //						
-						//clean transaction lores 
-						thisPlayer.getInventory().setItem(i, ItemUtils.createStockItem(item).getItem(true));
+						//clean transaction lores
+						if (Lore.hasTraderLore(item)) {
+							thisPlayer.getInventory().setItem(i, ItemUtils.createStockItem(item).getItem(true));
+						}
 					}
 				}
 				++i;
@@ -424,3 +426,4 @@ public class TEntityListener implements Listener {
 		}
 	}
 }
+ 
